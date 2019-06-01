@@ -1,0 +1,144 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+ 	<link rel="stylesheet" type="text/css" href="css/fullpage.css">
+ 	<link rel="stylesheet" type="text/css" href="css/index.css">
+ </head>
+ <body>
+    <a href="#" class="goto"><img src="image/00-go.png"></a>
+    <a href="javascript:;" class="more"><img src="image/00-more.png"></a>
+    <!-- 整个宣传页每个页面当中公共的部分，使用固定定位 -->
+
+ 	<div class="container">
+ 	<!-- container设置使用fullpage的整体容器 -->
+
+ 		<div class="section section1">
+ 			<!-- 设置第二个类名，是为了添加指定的背景 -->
+ 			<div class="content">
+ 				<!-- 在第一屏中再定义一个容器，用来专门盛放沙发，列表，椅子等主体内容 -->
+ 				<div class="goods"><img src="image/01-goods.png"></div>
+ 				<div class="sofa"><img src="image/01-sofa.png"></div>
+ 				<div class="flag"><img src="image/01-fly.png"></div>
+ 			</div>
+ 		</div>
+ 		<div class="section section2">
+ 			<div class="content">
+ 				<!-- 盛放输入框，沙发等 -->
+ 				<div class="goods"><img src="image/02-goods.png"></div>
+ 				<div class="sofa"><img src="image/02-sofa.png"></div>
+ 				<div class="input">
+ 					<img class="search" src="image/02-search.png">
+ 					<!-- 搜索框 -->
+ 					<img class="key" src="image/02-key.png">
+ 					<!-- 关键字 -->
+ 				</div>
+ 				<div class="text">
+ 					<img class="text1" src="image/02-text1.png">
+ 					<!-- 广告字做动画之前的图片文字 -->
+ 					<img class="text2" src="image/02-text2.png">
+ 					<!-- 广告字做完之后的文字效果 -->
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div class="section section3">
+ 			<div class="content">
+ 				<div class="sofa"><img src="image/02-sofa.png"></div>
+ 				<!-- 下面也需要沙发，不能一直用第二屏的沙发进行切换 -->
+ 				<!-- 因为因为定位距离太长，并且如果不是第二屏执行动画会出错 -->
+ 				<div class="change">
+ 					<img src="image/03-change01.gif">
+ 					<img src="image/03-change02.gif">
+ 				</div>
+ 				<div class="cart">
+ 					<img src="image/03-cart01.gif">
+ 					<img src="image/03-cart02.gif">
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div class="section section4">
+ 			<div class="content">
+ 				<div class="cloud"><img src="image/04-cloud.png"></div>
+ 				<div class="text">
+ 					<img src="image/04-text01.png">
+ 					<img src="image/04-text02.png">
+ 				</div>
+ 				<div class="cart"><img src="image/04-cart.png"></div>
+ 				<div class="sofa"><img src="image/02-sofa.png"></div>
+ 				<div class="address">
+ 					<img src="image/04-address01.png">
+ 					<img src="image/04-address02.png">
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div class="section section5">
+ 			<div class="content">
+ 				<div class="text"><img src="image/05-text.png"></div>
+ 				<div class="sofa"><img src="image/02-sofa.png"></div>
+ 				<div class="card">
+ 					<img src="image/05-card.png">
+ 					<img src="image/05-order.png">
+ 				</div>
+ 				<div class="mouse">
+ 					<img src="image/05-mouse01.png">
+ 					<img src="image/05-mouse02.png">
+ 					<img src="image/05-hand.png">
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div class="section section6">
+ 			<div class="content">
+ 				<div class="cloud">
+ 					<img src="image/06-cloud01.png">
+ 					<img src="image/06-cloud02.png">
+ 				</div>
+ 				<div class="text">
+ 					<img src="image/06-text01.png">
+ 					<img src="image/06-text02.png">
+ 				</div>
+ 				<div class="box"><img src="image/06-box.png"></div>
+ 				<div class="car">
+ 					<img src="image/06-car.png">
+ 					<img src="image/06-seller.png">
+ 					<img src="image/06-address.png">
+ 					<img src="image/06-worker.png">
+ 					<img src="image/06-say.png">
+ 				</div>
+ 				<div class="buyer">
+ 					<img src="image/06-person.png">
+ 					<img src="image/06-door.png">
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div class="section section7">
+ 			<div class="content">
+ 				<div class="star">
+ 					<img src="image/07-star.png">
+ 					<img src="image/07-star.png">
+ 					<img src="image/07-star.png">
+ 					<img src="image/07-star.png">
+ 					<img src="image/07-star.png">
+ 				</div>
+ 				<div class="text"><img src="image/07-text.png"></div>
+ 			</div>
+ 		</div>
+ 		<div class="section section8">
+ 			<div class="content">
+ 				<div class="btn">
+ 					<img src="image/08-btn01.png">
+ 					<img src="image/08-btn02.gif">
+ 					<!-- 鼠标放上显示按按钮的gif图片 -->
+ 				</div>
+ 				<div class="again"><img src="image/08-again.png"></div>
+ 				<div class="hand"><img src="image/08-hand.png"></div>
+ 			</div>
+ 		</div>
+ 		<!-- section设置每一块分页  -->
+ 	</div>
+
+    <script type="text/javascript" src="js/jquery-v1.12.4.js"></script>
+    <script type="text/javascript" src="js/jquery.fullpage.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+ </body>
+ </html>

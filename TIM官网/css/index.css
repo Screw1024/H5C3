@@ -1,0 +1,290 @@
+/*公用样式*/
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 14px;
+    font-family: "Microsoft YaHei",sans-serif;
+    color: #333;
+}
+ul{
+    list-style: none;
+}
+a{
+    color: #333;
+    text-decoration: none;
+}
+
+
+/*分模块样式*/
+
+.tim_nav{
+    height: 150px;
+    background: url(../image/nav_bg.png) repeat-x;
+    /*通过竖着的图背景图片横向平铺，达到从上到下颜色渐变的目的，也可以使用css中颜色渐变属性实现*/
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /*这里使用绝对定位，为了方便下面的背景图片更好的衔接*/
+}
+.tim_nav .wrapper{
+    width: 1080px;
+    height: 75px;
+    margin: 0 auto;
+}
+.tim_nav .wrapper .brand{
+    width: 100px;
+    height: 75px;
+    background: url(../image/nav_brand.png) no-repeat center;
+    float: left;
+}
+.tim_nav .wrapper .nav{
+    float: left;
+} 
+.tim_nav .wrapper .nav li{
+    float: left;
+    font-size: 18px;
+    line-height: 75px;
+    margin-left: 20px;
+}
+.tim_nav .wrapper .nav li a{
+    display: block;
+    padding: 0 20px;
+}
+.tim_nav .wrapper .nav li a:active,
+.tim_nav .wrapper .nav li a:hover{
+    background-color: #12b7f5;
+}
+.tim_nav .wrapper .register{
+    float: right;
+    height: 36px;
+    width: 96px;
+    text-align: center;
+    line-height: 36px;
+    font-size: 16px;
+    background-color: #12b7f5;
+    color: #fff;
+    border-radius: 18px;
+    margin-top: 19px;
+}
+/*注册左边部分*/
+
+.tim_nav .wrapper .other{
+    float: right;
+    width: 250px;
+    height: 75px;
+}
+.tim_nav .wrapper .other ul{
+    width: 250px;
+}
+.tim_nav .wrapper .other ul li {
+    float: right;
+    margin-left: 40px;
+}
+.tim_nav .wrapper .other ul li a{
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+}
+.tim_nav .wrapper .other span{
+    float: right;
+    margin-right: 20px;
+}
+/*导航栏模块结束*/
+
+.tim_banner{
+    height: 880px;
+    background: url(../image/banner-bg.jpg) no-repeat center top;
+    padding-top: 150px;
+}
+.tim_banner img{
+    display: block;
+    margin: 20px auto 0;
+}
+.tim_banner img:last-child{
+    width: 100%;
+    /*产品展示的图片过大，将其设置为浏览器全屏大小*/
+}
+/*产品模块结束*/
+
+.tim_sound h1{
+    height: 300px;
+    background: url(../image/sound-text.png) no-repeat center/cover;
+    /*背景图片设置成完全覆盖*/
+    font-size: 0;
+    /*去掉h1中的文字*/
+}
+.tim_sound .bg{
+    height: 500px;
+    background: url(../image/sound-bg.jpg) no-repeat center/cover;
+}
+.tim_sound .content{
+    height: 500px;
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+}
+.tim_sound .content .phone{
+    position: absolute;
+    left: 0;
+    top: -190px;
+    width: 700px;
+    height: 700px;
+    background: url(../image/sound-phone.png) no-repeat center top/cover;
+}
+.tim_sound .content h2{
+    position: relative;
+    float: right;
+    padding-top: 150px;
+    width: 500px;
+    font-size: 40px;
+    text-align: center;
+    right: -100px;
+}
+/*只有使用定位才能调整相对位置*/
+.tim_sound .content p{
+    position: relative;
+    padding-top: 30px;
+    float: right;
+    width: 500px;
+    text-align: center;
+    right: -100px;
+}
+/*沟通模块结束*/
+
+.tim_file{
+    height: 980px;
+}
+.tim_file .bg{
+    height: 500px;
+    background: url(../image/file-bg.jpg) no-repeat center/cover;
+}
+.tim_file .centent{
+    height: 500px;
+    width: 980px;
+    margin: 0 auto;
+}
+.tim_file .content .computer{
+    width: 600px;
+    height: 340px;
+    background: url(../image/file-mac.png) no-repeat center/cover;
+    float: right;
+    margin-right: 80px;
+    margin-top: 70px;
+}
+.tim_file .content h2{
+   position: relative;
+    float: left;
+    padding-top: 130px;
+    width: 500px;
+    font-size: 40px;
+    text-align: center;
+    right: -100px;
+}
+.tim_file .content p{
+    position: relative;
+    padding-top: 30px;
+    float: left;
+    width: 500px;
+    text-align: center;
+    right: -100px;
+}
+/*文件模块结束*/
+
+
+.tim_interest .bg{
+    height: 500px;
+    background: url(../image/interest-bg.jpg) no-repeat center/cover;
+}
+.tim_interest .content{
+    height: 500px;
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+}
+.tim_interest .content .phone{
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 350px;
+    height: 500px;
+    background: url(../image/interest-phone.png) no-repeat center top/cover;
+}
+.tim_interest .content h2{
+    position: relative;
+    float: right;
+    padding-top: 150px;
+    width: 500px;
+    font-size: 40px;
+    text-align: center;
+    right: -100px;
+}
+/*只有使用定位才能调整相对位置*/
+.tim_interest .content p{
+    position: relative;
+    padding-top: 30px;
+    float: right;
+    width: 500px;
+    text-align: center;
+    right: -100px;
+}
+/*兴趣部落模块结束*/
+
+.tim_footer{
+    height: 250px;
+    background: #2a2a2a;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 50px;
+    color: #666;
+}
+.plats{
+    width: 800px;
+    height: 150px;
+    margin: 0 auto;
+    display: block;
+}
+.plats a {
+    float: left;
+    background: transparent url(../image/footer.png) no-repeat 10px 0;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    padding-top: 50px;
+    width: 80px;
+    margin: 0 60px;
+}
+.plats a:hover {
+    color: #12b7f5;
+}
+.plats a.plmb {
+    background-position: 0 0;
+}
+.plats a.plmb:hover {
+    background-position: 0 -93px;
+}
+.plats a.plpc {
+    background-position: -105px 0;
+}
+.plats a.plpc:hover {
+    background-position: -105px -93px;
+}
+.plats a.plmac {
+    background-position: -210px 0;
+}
+.plats a.plmac:hover {
+    background-position: -210px -93px;
+}
+.plats a.plpad {
+    background-position: -326px 0;
+}
+.plats a.plpad:hover {
+    background-position: -326px -93px;
+}
+
+.tim_sound .bg,.tim_file .bg,.tim_interest .bg{
+    background-attachment: fixed;
+}
+/*为需要执行视觉差的元素，添加fixed值*/

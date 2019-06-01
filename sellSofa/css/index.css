@@ -1,0 +1,725 @@
+.goto{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position: fixed;
+	right: 30px;
+	top: 30px;
+	z-index: 999;
+	/*因为可能下面的背景的权重还被设置高了，这里添加一个较大且吉利权重*/
+}
+.more{
+	position: fixed;
+	right: 60px;
+	bottom: 80px;
+	z-index: 999;
+	animation: moreAni 0.7s linear infinite alternate;
+}
+/*公共部分模块结束*/
+
+
+
+.content{
+	width: 900px;
+	height: 600px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -450px;
+	/*background: rgba(0,0,0,0.1);*/
+}
+/*内容容器*/
+
+
+.section1{
+	background: url("../image/01-bg.png") no-repeat center bottom;
+}
+.section1 .goods{
+	text-align: center;
+	margin-top: 250px;
+}
+.section1 .sofa{
+    position: absolute;
+    left: 230px;
+    top: 170px;
+    animation: sofaAni 1.2s ease infinite alternate;
+    /*换个口味，将动画方式设置为ease*/
+}
+.section1 .flag{
+	position: absolute;
+	right: -50px;
+	top: 20px;
+	animation: flagAni 1s linear infinite alternate;
+	/*infinite和alternate分别代表无穷次循环和逆播放*/
+	/*逆播放是c3动画新的特性，前面解决方式是添加一个中间状态*/
+}
+
+@keyframes flagAni{
+	from{
+		transform: translateY(-30px);
+	}
+	/*开始时状态*/
+	/*50%{
+		transform: translateY(0);
+	}
+	c2技术为了解决上顶点和下定点的变换的突兀，添加一个中间状态*/
+	to{
+		transform: translateY(30px);
+	}
+	/*结束时状态*/
+}
+/*在c3技术中定义动画序列是通过@keyframe后面添加序列名，在animate调用时，第一个参数就是序列名*/
+/*横幅动画*/
+
+@keyframes moreAni{
+	from{
+		transform: translateY(20px);
+	}
+	to{
+		transform: translateY(-20px);
+	}
+}
+
+@keyframes sofaAni{
+	from{
+		transform: translateY(-25px);
+	}
+	to{
+		transform: translateY(25px);
+	}
+}
+/*第一屏模块结束*/
+
+
+
+.section2{
+	background: url("../image/02-bg.png") no-repeat center bottom;
+}
+.section2 .goods{
+	position: absolute;
+	left: 50%;
+	margin-left: -220px;
+	bottom: 210px;
+	transform-origin: right bottom;
+	transform: scale(0);
+}
+.section2 .sofa{
+	transform: scale(0.5);
+	position: absolute;
+	left: 292px;
+	top: 132px;
+	z-index: 9999;
+	opacity: 0;
+}
+.section .input{
+	position: absolute;
+	right: 190px;
+	top: 121px;
+	transform:scale(0.6);
+	/*缩放旋转等操作，默认的原点是中心*/
+	transform-origin: right top;
+	/*将原点转换为右上角点*/
+	opacity: 0;
+}
+.section .input .search{
+
+}
+.section .input .key{
+	position: absolute;
+	left: 100px;
+	top: 4px;
+	opacity: 0;
+}
+.section .text{
+	text-align: center;
+}
+.section .text .text2{
+	position: absolute;
+	opacity: 0;
+}
+
+.section2.into .text .text1{
+	/*into类名，是除了第一屏之外，被加载之后页面添加的*/
+	position: absolute;
+	opacity: 0;
+}
+.section2.into .text .text2{
+	position: static;
+	opacity: 1;
+	transform: opacity 4s;
+}
+.section2.into .input{
+    animation: inputAni1 3s ease forwards;
+    /*forwards控制动画完成之后的状态，默认是回到一开始的状态*/
+}
+.section2.into .input .key{
+	opacity: 1;
+	transition: all 1s linear 1s;
+	/*将关键字的出现延时一秒执行，因为搜索框整体进入需要延时的位置需要1s*/
+}
+.section2.into .goods{
+	transform: scale(1);
+	transition: all 1s ease 2s;
+	/*等待搜索框向上移动，所以延时两秒执行*/
+}
+
+@keyframes inputAni1{
+	0%{
+		transform: translate(1000px,130px);
+		/*起始位置*/
+		opacity: 1
+	}
+	33.3%{
+		transform: translate(-160px,130px);
+		/*屏幕中间*/
+	}
+	66.6%{
+		transform: translate(-160px,130px);
+		/*位置不变，搜索框大小改变*/
+	}
+	100%{
+		transform: scale(0.6);
+		/*定位都去掉就回到一开始的位置，上面的位移是根据原来位置的相对位移*/
+		opacity: 1
+	}
+}
+/*第二屏模块结束*/
+
+
+
+.section2.leaved .sofa{
+	animation: sofaAni2 1s ease;
+}
+@keyframes sofaAni2{
+    /*上面也有一个沙发相关的动画，起名是sofa1*/
+    from{
+    	opacity: 1;
+    }
+    to{
+    	opacity: 1;
+    	transform: translate(-80px,800px);
+    	/*translate放在一起写，前一个参数指定x轴，后一个Y轴*/
+    }
+}
+
+.section3{
+	background: url("../image/03-bg.png") no-repeat center bottom;
+}
+.section3 .sofa{
+	position: absolute;
+	left: 212px;
+	top: 180px;
+	display: none;
+	/*动画执行完之前，不显示第三屏的沙发*/
+}
+.section3 .change{
+	position: absolute;
+	right: 115px;
+	bottom: 170px;
+}
+
+.section3 .change img:last-child{
+	position: absolute;
+	opacity: 0;
+}
+.section3 .cart img:last-child{
+	position: absolute;
+	opacity: 0;
+}
+
+.section3 .cart{
+	position: absolute;
+	right: 155px;
+	bottom: 90px;
+}
+
+/*将选沙发的盒子放在右下角*/
+
+.section3.into .change img:first-child{
+	display: none;
+}
+.section3.into .change img:last-child{
+	position: static;
+	opacity: 1;
+	transition: all 1s linear;
+}
+.section3.into .cart img:first-child{
+    display: none;
+}
+.section3.into .cart img:last-child{
+	position: static;
+	opacity: 1;
+	transition: all 1s linear;
+}
+
+.section3.into .sofa{
+	display: block;
+	z-index: 999;
+}
+
+.section3.leaved .sofa{
+	animation: sofaAni3  1s ease;
+}
+/*离开第三屏，进入第四屏需要做的动画*/
+
+@keyframes sofaAni3{
+	form{
+
+	}
+	to{
+		transform: translate(200px,730px) rotate(45deg);
+		/*transform属性可以添加多个属性，中间通过空格隔开*/
+		/*同时，注意坐标轴是转换后的坐标轴，所以先把坐标转换放在前面*/
+	}
+}
+
+/*第三屏模块结束*/
+
+
+
+.section4{
+	background: url(../image/04-bg.png) no-repeat center bottom;
+}
+.section4 .cloud{
+	position: absolute;
+	left: -200px;
+	top: -80px;
+	animation: cloudAni 13s linear infinite alternate;
+	/*alternate:动画应该轮流反向播放infinite:执行无数次*/
+}
+
+@keyframes cloudAni{
+	from{
+
+	}
+	to{
+		transform: translateX(600px);
+	}
+}
+
+.section4 .text{
+	text-align: center;
+	margin-top: 120px;
+}
+.section4 .text img:last-child{
+	position: absolute;
+	opacity: 0;
+}
+
+.section4 .text.show img:first-child{
+	position: absolute;
+	opacity: 0;
+}
+.section4 .text.show img:last-child{
+	position: static;
+	opacity: 1;
+	transition: all 1s linear;
+}
+
+.section4 .cart{
+	text-align: center;
+	margin-top: 40px;
+	position: relative;
+	z-index: 1002;
+	/*购物车在沙发前面显示*/
+}
+.section4 .sofa{
+	position: absolute;
+	top: 156px;
+	left: 413px;
+	transform: rotate(45deg);
+	opacity: 0;
+}
+.section4 .address{
+	position: absolute;
+	width: 283px;
+	height: 270px;	
+	/*不然图片的盒子还有内外边距，确定下来*/
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 150px;
+	display: none;
+}
+.section4 .address img:last-child{
+	position: absolute;
+	top: 60px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 999;
+	display: none;
+}
+
+
+.section4.into .sofa{
+	opacity: 1;
+	transition: transform  3s;
+	transform: translateX(1300px);
+}
+.section4.into .cart{
+	transition: all 3s;
+	transform: translateX(1300px);
+}
+/*第四屏模块结束*/
+
+
+
+.section5{
+	background:url(../image/05-bg.png);
+}
+.section5 .sofa{
+    position: absolute;
+    bottom: 100px;
+    left: 100px;
+    transform: rotate(30deg);
+    opacity: 0;
+    z-index: 1001;
+}
+.section5 .card{
+	position: absolute;
+	left: 0;
+	top: 180px;
+	z-index: 1002;
+} 
+.section5 .card img:first-child{
+	position: relative;
+	z-index: 999;
+}
+.section5 .card img:last-child{
+	position: absolute;
+	left: 130px;
+	top: -80px;
+	transform: translateY(80px);
+}
+
+.section5 .mouse{
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 400px;
+	overflow: hidden;
+}
+.section5 .mouse img:nth-child(-n+2){
+    position: absolute;
+    top: -430px;
+    right: 80px;
+}
+/*:nth-child是用来指定第几个元素，n可是具体数字以及单双数和计算公式*/
+.section5 .mouse img:nth-child(2){
+	opacity: 0;
+	/*display方式不好控制动画的显示和隐藏*/
+}
+.section5 .mouse img:last-child{
+	position: absolute;
+	top: 240px;
+	right: 130px;
+	transform: translateY(500px);
+}
+.section5.into .mouse img:last-child{
+	transition: all 1s ease;
+	transform: none;
+}
+.section5.into .mouse img:nth-child(2){
+	transition: all 0.1s linear 1s;
+	/*延时1s为了等待手移上来*/
+	opacity: 1;
+}
+
+.section5.into .sofa{
+    animation: sofaAni5 2s linear 1.1s forwards;
+}
+@keyframes sofaAni5{
+	from{
+		transform: translateY(-1000px) rotate(30deg);
+		opacity: 1;
+	}
+	50%{
+		transform: translateY(-150px) rotate(30deg);
+	}
+	100%{
+		opacity: 1;
+		transform: rotate(30deg);
+	}
+}
+
+.section5.into .card img:last-child{
+	transition: all 1s linear 2.2s;
+	transform: none; 	
+}
+
+.section5.leaved .sofa{
+	/*transform: translateY(700px) rotate(30deg) scale(0.3);
+	transition: all 1s linear;*/
+	animation: sofaAni56 1s linear;
+}
+
+@keyframes sofaAni56{
+    from{
+    	opacity: 1;
+    	transform: scale(0.3);
+    }
+    to{
+    	opacity: 1;
+    	transform: translateY(470px) rotate(30deg) scale(0.3);
+    }
+}
+/*第五屏模块结束*/
+
+
+
+.section6{
+	background: url(../image/06-bg.png) no-repeat 25% bottom;
+	/*基于css3的背景百分比*/
+}
+.section6.into{
+	transition: background 2s linear 1s;
+	background: url(../image/06-bg.png) no-repeat 100% bottom;
+}
+/*在第六屏渲染完成之后再执行动画，不然开始就会执行，造成不到动画*/
+
+
+.section6 .cloud{
+	position: absolute;
+	top: -50px;
+	left: 0;
+}
+.section6 .cloud img:first-child{
+	animation: cloudAni6 20s linear infinite alternate;
+}
+.section6 .cloud img:last-child{
+	position: absolute;
+	top: 0;
+	left: 0;
+	animation: cloudAni6 30s linear infinite alternate;
+}
+
+@keyframes cloudAni6{
+	from{
+
+	}
+	to{
+		transform: translateX(1000px);
+	}
+}
+
+.section6 .text{
+	position: absolute;
+	top: 40px;
+	left: 85px;
+}
+.section6 .text img:last-child{
+	position: absolute;
+	opacity: 0;
+	left: 0;
+	top: 0;
+}
+
+.section6 .box{
+	position: absolute;
+	top: 120px;
+	left: 140px;
+	transform: translateX(-500px);
+}
+.section6 .box.show{
+	animation: boxAni6 2s linear forwards;
+
+}
+@keyframes boxAni6{
+	from{
+		transition: translateX(-800px);
+	}
+	50%{
+        transform: none;
+	}
+	to{
+		transform: translateY(330px) scale(0.3);
+		
+	}
+}
+
+.section6 .car{
+	position: absolute;
+	bottom: 0;
+	left: 120px;
+	z-index: 1003;
+	/*车子的层级需要比包裹大，才能显示车子遮住包裹*/
+}
+.section6 .car img{
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    /*top: 0;*/
+}
+.section6 .car img:first-child{
+	opacity: 1;
+	position: relative;
+}
+
+.section6 .car img:nth-child(2){
+	left: 160px;
+	top: -50px;
+}
+.section6 .car img:nth-child(3){
+	left: 160px;
+	top: -50px;
+}
+
+.section6.into .car img:nth-child(2){
+	transition: all 0.25s 1.15s;
+	opacity: 1;
+}
+.section6.into .car img:nth-child(3){
+	transition: all 0.25s 1.75s;
+	opacity: 1;
+}
+
+.section6 .car img:nth-child(4){
+	left: 0;
+	bottom: 0;
+	opacity: 1;
+	transform: scale(0);
+	transform-origin: left bottom;
+	/*指定以左下角作为动画的原点*/
+}
+
+
+.section6.into .car img:nth-child(4){
+	animation: workerAni6 2.5s linear 2s forwards;
+}
+.section6.into .text img:first-child{
+	opacity: 0;
+	transition: all 0.1s linear 4.5s;
+}
+.section6.into .text img:last-child{
+	opacity: 1;
+	transition: all 1s linear 4.5s;
+}
+@keyframes workerAni6{
+	from{
+       transform: scale(0);
+	}
+	33.3%{
+		transform: scale(1);
+	}
+	66.7%{
+		transform: scale(1) translateY(-110px);
+	}
+	to{
+		transform: scale(1) translateY(-110px) translateX(150px);
+	}
+}
+/*快递员动画*/
+
+.section6 .car img:last-child{
+	left: 350px;
+	top: -420px;
+}
+.section6.into .car img:last-child{
+	opacity: 1;
+	transition: all 0.5s linear 4.5s;
+}
+/*收货语句动画*/
+
+.section6 .buyer{
+	position: absolute;
+	right: -35px;
+	bottom: 116px;
+	width: 106px;
+	height: 150px;
+}
+.section6 .buyer img:first-child{
+   position: absolute;
+   right: 0;
+   bottom: 0;
+   transform-origin: right bottom;
+   transform: scale(0);
+}
+.section6 .buyer img:last-child{
+	opacity: 0;
+}
+
+.section6.into .buyer img:first-child{
+	transform: scale(1);
+	right: 200px;
+	transition: all 0.4s linear 5.35s,right 0.75s linear 5.5s;
+	/*两个动画的属性，中间通过逗号隔开*/
+}
+.section6.into .buyer img:last-child{
+	opacity: 1;
+	transition: all 0.4s linear 5s;
+}
+/*第六屏模块结束*/
+
+
+.section7{
+	background: url(../image/07-bg.png) no-repeat bottom;
+}
+.section7 .star{
+	position: absolute;
+	left: 156px;
+	top: 143px;	
+}
+
+.section7 .star img{
+	float: left;
+	/*左浮动并清除原来的间距*/
+	margin-right: 7px;
+	display: none;
+}
+.section7 .text{
+	position: absolute;
+	left: 160px;
+	top: 180px;
+	opacity: 0;
+	transform-origin: left bottom;
+	transform: scale(0);
+}
+.section7 .text.show{
+	transform: none;
+	animation: textAni7 0.5s ease 2s forwards;
+}
+@keyframes textAni7{
+	from{}
+	70%{
+		transform: scale(1.3);
+		opacity: 1;
+	}
+	to{
+		transform: none; 
+		opacity: 1;
+	}
+}
+/*第七屏模块结束*/
+
+
+.section8{
+	background: url(../image/08-bg.png);
+}
+.section8 .btn{
+    width: 389px;
+    height: 160px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.section8 .btn img:last-child{
+	position: absolute;
+	left: 0; 
+	top: 0;
+	opacity: 0;
+}
+.section .btn:hover img:last-child{
+	opacity: 1;
+}
+.section8 .again{
+	position: absolute;
+	right: 0;
+	top: 80px;
+}
+.section8 .hand{
+	position: absolute;
+	left: 50%;
+	top: 100px;
+	margin-left: -85px;
+}
+
